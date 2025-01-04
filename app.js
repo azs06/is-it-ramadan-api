@@ -2,6 +2,8 @@ const express = require("express");
 const axios = require("axios");
 const dayjs = require("dayjs");
 
+require('dotenv').config()
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,7 +26,7 @@ app.get("/:country", async (req, res) => {
 
     // Send request to Aladhan API for the Gregorian to Hijri calendar
     const response = await axios.get(
-      `https://api.aladhan.com/v1/gToHCalendar/${month}/${year}`
+      `${process.env.API_URL}/gToHCalendar/${month}/${year}`
     );
 
     const hijriCalendar = response.data.data;
