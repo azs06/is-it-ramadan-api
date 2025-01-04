@@ -1,0 +1,1 @@
+An express api that checks if it's ramadan for given country and date.
